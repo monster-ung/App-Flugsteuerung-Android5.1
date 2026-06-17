@@ -1,0 +1,73 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:2:1-29:12
+	package
+		INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:5:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:6:5-76
+	android:name
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:6:22-73
+application
+ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:8:5-27:19
+INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:8:5-27:19
+	android:extractNativeLibs
+		INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml
+	android:supportsRtl
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:13:9-35
+	android:label
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:11:9-41
+	android:roundIcon
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:12:9-50
+	android:icon
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:10:9-45
+	android:allowBackup
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:9:9-35
+	android:theme
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:14:9-40
+activity#de.ungethuem.flugsteuerung.MainActivity
+ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:15:9-26:20
+	android:screenOrientation
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:18:13-50
+	android:exported
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:17:13-36
+	android:keepScreenOn
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:20:13-40
+	android:configChanges
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:19:13-59
+	android:name
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:16:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:21:13-25:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:22:17-69
+	android:name
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:22:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:24:17-77
+	android:name
+		ADDED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:24:27-74
+uses-sdk
+INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml

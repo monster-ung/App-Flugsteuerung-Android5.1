@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Infineon CI Dark Mode Palette -->
+    <color name="surface">#0F141C</color>
+    <color name="surface_panel">#003865</color>
+    <color name="surface_panel_glass">#80003865</color>
+    <color name="surface_elevated">#1A2535</color>
+    <color name="border">#1A5A8A</color>
+    <color name="border_accent">#00A3A3</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#A0AAB5</color>
+
+    <!-- Infineon Teal (Primary) -->
+    <color name="accent">#00A3A3</color>
+    <color name="accent_bright">#00D4D4</color>
+    <color name="accent_pressed">#007A7A</color>
+    <color name="accent_dim">#2600A3A3</color>
+
+    <!-- Warning / Accent Orange -->
+    <color name="warning">#FF6B35</color>
+    <color name="danger">#FF4444</color>
+    <color name="danger_dim">#33FF4444</color>
+
+    <!-- Status -->
+    <color name="armed_green">#3FB950</color>
+    <color name="armed_green_dim">#333FB950</color>
+    <color name="connection_red">#FF4444</color>
+
+    <!-- Joystick -->
+    <color name="joystick_base">#1A2535</color>
+    <color name="joystick_thumb">#00A3A3</color>
+    <color name="joystick_ring">#A0AAB5</color>
+
+    <!-- Status Bar -->
+    <color name="status_bar">#003865</color>
+    <color name="status_bar_line">#00A3A3</color>
+
+    <!-- Mode Toggle -->
+    <color name="toggle_active">#00A3A3</color>
+    <color name="toggle_inactive">#1A2535</color>
+</resources>

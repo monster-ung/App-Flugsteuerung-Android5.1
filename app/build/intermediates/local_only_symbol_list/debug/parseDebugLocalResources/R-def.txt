@@ -1,0 +1,37 @@
+R_DEF: Internal format may change without notice
+local
+color accent
+color accent_bright
+color accent_dim
+color accent_pressed
+color armed_green
+color armed_green_dim
+color border
+color border_accent
+color connection_red
+color danger
+color danger_dim
+color joystick_base
+color joystick_ring
+color joystick_thumb
+color status_bar
+color status_bar_line
+color surface
+color surface_elevated
+color surface_panel
+color surface_panel_glass
+color text_primary
+color text_secondary
+color toggle_active
+color toggle_inactive
+color warning
+drawable button_primary
+drawable button_secondary
+drawable calibrate_button
+drawable ic_launcher
+drawable panel_background
+drawable status_bar_background
+drawable toggle_active
+drawable toggle_inactive
+string app_name
+style AppTheme

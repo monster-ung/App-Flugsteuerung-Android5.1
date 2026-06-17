@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/status_bar" />
+        </shape>
+    </item>
+    <item android:gravity="bottom" android:height="2dp">
+        <shape>
+            <solid android:color="@color/status_bar_line" />
+        </shape>
+    </item>
+</layer-list>

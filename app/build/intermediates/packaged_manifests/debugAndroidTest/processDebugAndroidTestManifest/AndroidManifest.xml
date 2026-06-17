@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.ungethuem.flugsteuerung.test" >
+
+    <uses-sdk
+        android:minSdkVersion="22"
+        android:targetSdkVersion="35" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for de.ungethuem.flugsteuerung"
+        android:targetPackage="de.ungethuem.flugsteuerung" />
+
+    <application
+        android:debuggable="true"
+        android:extractNativeLibs="true" >
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+</manifest>

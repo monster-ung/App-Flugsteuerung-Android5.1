@@ -1,0 +1,62 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="de.ungethuem.flugsteuerung"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="22"
+9        android:targetSdkVersion="35" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:4:5-67
+11-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:5:5-79
+12-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:5:22-76
+13    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+13-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:6:5-76
+13-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:6:22-73
+14
+15    <application
+15-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:8:5-27:19
+16        android:allowBackup="true"
+16-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:9:9-35
+17        android:debuggable="true"
+18        android:extractNativeLibs="true"
+19        android:icon="@drawable/ic_launcher"
+19-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:10:9-45
+20        android:label="@string/app_name"
+20-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:11:9-41
+21        android:roundIcon="@drawable/ic_launcher"
+21-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:12:9-50
+22        android:supportsRtl="true"
+22-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:13:9-35
+23        android:theme="@style/AppTheme" >
+23-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:14:9-40
+24        <activity
+24-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:15:9-26:20
+25            android:name="de.ungethuem.flugsteuerung.MainActivity"
+25-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:16:13-41
+26            android:configChanges="orientation|screenSize"
+26-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:19:13-59
+27            android:exported="true"
+27-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:17:13-36
+28            android:keepScreenOn="true"
+28-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:20:13-40
+29            android:screenOrientation="landscape" >
+29-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:18:13-50
+30            <intent-filter>
+30-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:21:13-25:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:22:17-69
+31-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:22:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:24:17-77
+33-->C:\Users\ungethuem\Workspaces\App-Flugsteuerung-Android5.1\app\src\main\AndroidManifest.xml:24:27-74
+34            </intent-filter>
+35        </activity>
+36    </application>
+37
+38</manifest>
