@@ -9,6 +9,7 @@ import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.net.wifi.WifiManager
 import android.os.Bundle
 import android.text.InputType
 import android.view.Gravity
@@ -68,6 +69,9 @@ class MainActivity : Activity(), SensorEventListener {
     private var socket: DatagramSocket? = null
     private var lastUiNetworkUpdate = 0L
     private var packetsSent = 0L
+    private var cachedAddress: InetAddress? = null  // Cache für InetAddress (verhindert GC)
+    private var cachedHostString = ""  // Track letzten Host für Cache-Invalidierung
+    private var wifiLock: WifiManager.WifiLock? = null  // High-Performance WiFi Lock
 
     // --- Steuerungswerte ---
     private var rollAngle = NEUTRAL_ANGLE
@@ -76,7 +80,7 @@ class MainActivity : Activity(), SensorEventListener {
     private var pitchNormalized = 0f
 
     // --- Trim (einstellbare Neutralposition) ---
-    private var trimRollNeutral = 100              // Roll neutral (default 100)
+    private var trimRollNeutral = NEUTRAL_ANGLE    // Roll neutral (default 90)
     private var trimPitchNeutral = NEUTRAL_ANGLE   // Pitch neutral (default 90)
 
     // --- Modus ---
@@ -134,6 +138,10 @@ class MainActivity : Activity(), SensorEventListener {
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+        
+        // WiFi High-Performance Lock erstellen (verhindert Scanning/Power-Saving)
+        val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        wifiLock = wifiManager.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "FlightControlLock")
 
         buildUi()
         startSender()
@@ -144,11 +152,17 @@ class MainActivity : Activity(), SensorEventListener {
         accelerometer?.let {
             sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_GAME)
         }
+        // WiFi Lock aktivieren für optimale Latenz
+        wifiLock?.acquire()
     }
 
     override fun onPause() {
         setArmed(false)
         sensorManager.unregisterListener(this)
+        // WiFi Lock freigeben
+        if (wifiLock?.isHeld == true) {
+            wifiLock?.release()
+        }
         super.onPause()
     }
 
@@ -162,6 +176,11 @@ class MainActivity : Activity(), SensorEventListener {
         networkExecutor.shutdownNow()
         socket?.close()
         socket = null
+        // WiFi Lock sicher freigeben
+        if (wifiLock?.isHeld == true) {
+            wifiLock?.release()
+        }
+        wifiLock = null
         super.onDestroy()
     }
 
@@ -204,9 +223,9 @@ class MainActivity : Activity(), SensorEventListener {
         val normPitch = (pitchDeg / TILT_PITCH_DEFLECTION_DEG).coerceIn(-1f, 1f)
 
         val finalRoll = if (invertRoll) normRoll else -normRoll
-        val finalPitch = if (invertPitch) -normPitch else normPitch
+        val finalPitch = if (invertPitch) normPitch else -normPitch  // Pitch invertiert: Handy nach vorne → Flieger runter
 
-        updateCommand(finalPitch, finalRoll)
+        updateCommand(finalRoll, finalPitch)
 
         // Künstlicher Horizont aktualisieren
         if (::artificialHorizon.isInitialized) {
@@ -469,12 +488,12 @@ class MainActivity : Activity(), SensorEventListener {
                     setPadding(0, dp(10), 0, dp(6))
                 })
 
-                addView(buildTrimRow("P", trimRollNeutral) { value ->
+                addView(buildTrimRow("R", trimRollNeutral) { value ->
                     trimRollNeutral = value
                     updateCommand(rollNormalized, pitchNormalized)
                 }.also { rollTrimText = it.findViewWithTag("trimValue") })
 
-                addView(buildTrimRow("R", trimPitchNeutral) { value ->
+                addView(buildTrimRow("P", trimPitchNeutral) { value ->
                     trimPitchNeutral = value
                     updateCommand(rollNormalized, pitchNormalized)
                 }.also { pitchTrimText = it.findViewWithTag("trimValue") })
@@ -622,7 +641,7 @@ class MainActivity : Activity(), SensorEventListener {
                         if (!tiltMode) {
                             val finalX = if (invertRoll) -x else x
                             val finalY = if (invertPitch) -y else y
-                            updateCommand(finalY, -finalX)
+                            updateCommand(-finalX, finalY)
                         }
                     }
                 }
@@ -764,8 +783,13 @@ class MainActivity : Activity(), SensorEventListener {
 
     private fun sendUdp(payload: ByteArray) {
         try {
-            val address = InetAddress.getByName(targetHost)
-            val packet = DatagramPacket(payload, payload.size, address, targetPort)
+            // InetAddress cachen um GC-Pauses zu vermeiden
+            if (cachedAddress == null || cachedHostString != targetHost) {
+                cachedAddress = InetAddress.getByName(targetHost)
+                cachedHostString = targetHost
+            }
+            
+            val packet = DatagramPacket(payload, payload.size, cachedAddress, targetPort)
             val datagramSocket = socket ?: DatagramSocket().also { socket = it }
             val sendStart = System.currentTimeMillis()
             datagramSocket.send(packet)
@@ -782,6 +806,8 @@ class MainActivity : Activity(), SensorEventListener {
                 }
             }
         } catch (exception: Exception) {
+            // Cache invalidieren bei Fehler
+            cachedAddress = null
             runOnUiThread {
                 if (::connectionIndicator.isInitialized) {
                     (connectionIndicator.background as? GradientDrawable)?.setColor(color(R.color.connection_red))
@@ -815,7 +841,7 @@ class MainActivity : Activity(), SensorEventListener {
         modeManualButton.setTextColor(color(if (!gyro) R.color.text_primary else R.color.text_secondary))
         modeLabel.text = if (gyro) "GYRO" else "MANUELL"
         if (!gyro) {
-            updateCommand(joystick.getNormalizedX(), joystick.getNormalizedY())
+            updateCommand(joystick.getNormalizedY(), joystick.getNormalizedX())
         }
     }
 
